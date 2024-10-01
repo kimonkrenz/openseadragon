@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenSeadragon Full Page DZI Viewer with Rotation</title>
+    <title>OpenSeadragon Full Page DZI Viewer</title>
     <style>
         /* Ensure the body and html fill the whole page */
         html, body {
@@ -20,19 +20,15 @@
     </style>
 </head>
 <body>
-
-    <!-- OpenSeadragon Viewer -->
     <div id="openseadragon1"></div>
 
     <script src="https://openseadragon.github.io/openseadragon/openseadragon.min.js"></script>
     <script>
         var viewer = OpenSeadragon({
             id: "openseadragon1",
-            prefixUrl: "https://raw.githubusercontent.com/kimonkrenz/openseadragon/master/images/nav/", // Custom button images location
+            prefixUrl: "https://raw.githubusercontent.com/kimonkrenz/openseadragon/images/",
             tileSources: "https://raw.githubusercontent.com/kimonkrenz/openseadragon/refs/heads/master/images/img/img.dzi",
-            showRotationControl: true, // Enables rotation controls in the toolbar
-            toolbar: "toolbar-container", // Optional: can link to a toolbar container if needed
-            showNavigator: false
+            showNavigator: true, // Optional: shows a mini-map in the corner for easy navigation
         });
 
         // Center and zoom after the image has been opened
@@ -41,31 +37,6 @@
             viewer.viewport.zoomTo(viewer.viewport.getHomeZoom() * 1.5); // Adjusts the zoom level (1.5x in this case)
             viewer.viewport.panTo(new OpenSeadragon.Point(0.5, 0.5)); // Pans to the center of the image
         });
-
-        // Add rotation controls using built-in OpenSeadragon buttons
-        viewer.addControl(viewer.buttons.buttons[0].element); // This ensures the zoom buttons remain
-        viewer.addControl(OpenSeadragon.Button({
-            tooltip: 'Rotate Left',
-            srcRest: viewer.prefixUrl + 'rotateleft_rest.png',
-            srcGroup: viewer.prefixUrl + 'rotateleft_grouphover.png',
-            srcHover: viewer.prefixUrl + 'rotateleft_hover.png',
-            srcDown: viewer.prefixUrl + 'rotateleft_pressed.png',
-            onRelease: function() {
-                viewer.viewport.setRotation(viewer.viewport.getRotation() - 90); // Rotate counterclockwise by 90 degrees
-            }
-        }).element);
-
-        viewer.addControl(OpenSeadragon.Button({
-            tooltip: 'Rotate Right',
-            srcRest: viewer.prefixUrl + 'rotateright_rest.png',
-            srcGroup: viewer.prefixUrl + 'rotateright_grouphover.png',
-            srcHover: viewer.prefixUrl + 'rotateright_hover.png',
-            srcDown: viewer.prefixUrl + 'rotateright_pressed.png',
-            onRelease: function() {
-                viewer.viewport.setRotation(viewer.viewport.getRotation() + 90); // Rotate clockwise by 90 degrees
-            }
-        }).element);
     </script>
-
 </body>
 </html>
