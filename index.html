@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenSeadragon Full Page DZI Viewer</title>
+    <title>OpenSeadragon Full Page DZI Viewer with Rotation</title>
     <style>
         /* Ensure the body and html fill the whole page */
         html, body {
@@ -28,7 +28,17 @@
             id: "openseadragon1",
             prefixUrl: "https://raw.githubusercontent.com/kimonkrenz/openseadragon/refs/heads/master/images/",
             tileSources: "https://raw.githubusercontent.com/kimonkrenz/openseadragon/refs/heads/master/images/img/img.dzi",
-            showNavigator: true, // Optional: shows a mini-map in the corner for easy navigation
+
+            // Enable built-in rotation controls
+            showRotationControl: true,
+
+            // Disable navigator (mini-map in the upper right corner)
+            showNavigator: false,
+
+            // Enable touch rotation
+            gestureSettingsTouch: {
+                pinchRotate: true
+            }
         });
 
         // Center and zoom after the image has been opened
