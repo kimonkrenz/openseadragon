@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenSeadragon Demo</title>
+    <title>OpenSeadragon DZI Collection</title>
 </head>
 <body>
     <div id="openseadragon1" style="width: 900px; height: 900px;"></div>
@@ -13,7 +13,28 @@
         var viewer = OpenSeadragon({
             id: "openseadragon1",
             prefixUrl: "https://openseadragon.github.io/openseadragon/images/",
-            tileSources: "https://www.dropbox.com/scl/fi/hpmaohio02kxo1eexq3l0/segregation_taxonomy_hq.dzi?rlkey=qv2u406fw0q2p2bnv8j04i0sn&st=3o02cp7q&raw=1"
+            tileSources: [
+                {
+                    tileSource: "https://raw.githubusercontent.com/kimonkrenz/openseadragon/master/images/img/tile_0.dzi", // Top-left
+                    x: 0, y: 0, width: 0.5
+                },
+                {
+                    tileSource: "https://raw.githubusercontent.com/kimonkrenz/openseadragon/master/images/img/tile_1.dzi", // Top-right
+                    x: 0.5, y: 0, width: 0.5
+                },
+                {
+                    tileSource: "https://raw.githubusercontent.com/kimonkrenz/openseadragon/master/images/img/tile_2.dzi", // Bottom-left
+                    x: 0, y: 0.5, width: 0.5
+                },
+                {
+                    tileSource: "https://raw.githubusercontent.com/kimonkrenz/openseadragon/master/images/img/tile_3.dzi", // Bottom-right
+                    x: 0.5, y: 0.5, width: 0.5
+                }
+            ],
+            collectionMode: true,
+            collectionLayout: "horizontal",
+            collectionTileSize: 512,
+            collectionTileMargin: 10
         });
     </script>
 </body>
