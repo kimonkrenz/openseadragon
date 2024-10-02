@@ -9,3 +9,5 @@ instrumented/
 .directory
 local-test
 .DS_Store
+images/menu.svg
+images/dzi.txt
