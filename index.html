@@ -10,12 +10,27 @@
             margin: 0;
             padding: 0;
             height: 100%;
+            background-color: white; /* Ensure the viewer background stays white */
         }
 
         /* Make the OpenSeadragon viewer take up the full window */
         #openseadragon1 {
             width: 100%;
             height: 100%;
+            background-color: white; /* Ensure the viewer background stays white */
+        }
+
+        /* Fullscreen styling for the viewer to keep background white */
+        #openseadragon1:-webkit-full-screen {
+            background-color: white; /* For Safari and Chrome */
+        }
+
+        #openseadragon1:-moz-full-screen {
+            background-color: white; /* For Firefox */
+        }
+
+        #openseadragon1:fullscreen {
+            background-color: white; /* For general full-screen */
         }
     </style>
 </head>
